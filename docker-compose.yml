@@ -1,0 +1,23 @@
+version: "3"
+
+
+services:
+    piaus12345-app:
+      build: .
+      ports: 
+        - 3000:3000
+      volumes: 
+        - ./src:/opt/app/src
+      environment: 
+        - PORT=3000
+        - DATABASE=postgres://postgres:piaus123@piaus12345-postgres:5432/piaus12345
+      depends_on: 
+        - piaus12345-postgres
+    piaus12345-postgres:
+      image: postgres:10-alpine 
+      environment: 
+        - POSTGRES_PASSWORD=piaus123
+        - POSTGRES_DB=piaus12345  
+      logging: 
+        driver: none                       
+               
