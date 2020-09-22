@@ -19,5 +19,9 @@ services:
         - POSTGRES_PASSWORD=piaus123
         - POSTGRES_DB=piaus12345  
       logging: 
-        driver: none                       
+        driver: none    
+    piaus12345-adminer:
+      image: adminer
+      ports: 
+        - 8080:8080                         
                
